@@ -6,5 +6,13 @@
     "duration_minutes": 90,
     "distance_km": 2.0,
     "stops": 5
+  },
+  {
+    "file": "paris_walks.json",
+    "walk_name": "Romantic Paris: Love, Memory, and Chance Encounters",
+    "city": "Paris",
+    "duration_minutes": 120,
+    "distance_km": 3.5,
+    "stops": 6
   }
 ]

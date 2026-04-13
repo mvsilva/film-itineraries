@@ -1,0 +1,98 @@
+{
+  "walk_name": "Romantic Paris: Love, Memory, and Chance Encounters",
+  "city": "Paris",
+  "duration_minutes": 120,
+  "distance_km": 3.5,
+  "points": [
+    {
+      "title": "Café des Deux Moulins (Montmartre)",
+      "movie_name": "Amelie",
+      "coordinates": {
+        "lat": 48.8846,
+        "lng": 2.3325
+      },
+      "description": "This café is where Amélie works, a small but vibrant corner of Montmartre. The film turns everyday routines into something quietly magical, suggesting that romance isn't found in grand gestures, but in noticing the details others overlook.",
+      "audio": {
+        "title": "Yann Tiersen - Comptine d'un autre été",
+        "spotify_link": "https://open.spotify.com/search/Yann%20Tiersen%20Comptine%20d%20un%20autre%20ete",
+        "youtube_link": "https://www.youtube.com/results?search_query=Yann+Tiersen+Comptine+d%27un+autre+ete",
+        "note": "Start this as you approach the café. Let the rhythm guide your pace through Montmartre."
+      }
+    },
+    {
+      "title": "Rue de l'Abreuvoir (Montmartre)",
+      "movie_name": "Amelie",
+      "coordinates": {
+        "lat": 48.8863,
+        "lng": 2.3346
+      },
+      "description": "One of the most picturesque streets in Paris, Rue de l'Abreuvoir captures the dreamlike quality of Amélie. The film presents Paris not as it is, but as it feels when you're slightly in love with the world.",
+      "audio": {
+        "title": "Yann Tiersen - La valse d'Amelie",
+        "spotify_link": "https://open.spotify.com/search/Yann%20Tiersen%20La%20valse%20d%20Amelie",
+        "youtube_link": "https://www.youtube.com/results?search_query=Yann+Tiersen+La+valse+d%27Amelie",
+        "note": "Play while wandering slowly. Don't rush this street — it's about atmosphere, not destination."
+      }
+    },
+    {
+      "title": "Shakespeare and Company (Left Bank)",
+      "movie_name": "Before Sunset",
+      "coordinates": {
+        "lat": 48.8527,
+        "lng": 2.3470
+      },
+      "description": "This English-language bookshop is where Jesse gives his reading in Before Sunset. It's the starting point of a conversation that unfolds across the city — a reminder that romance can begin with something as simple as talking to the right person at the right time.",
+      "audio": {
+        "title": "Julie Delpy - A Waltz for a Night",
+        "spotify_link": "https://open.spotify.com/search/A%20Waltz%20for%20a%20Night%20Julie%20Delpy",
+        "youtube_link": "https://www.youtube.com/results?search_query=A+Waltz+for+a+Night+Julie+Delpy",
+        "note": "Play just after leaving the bookshop. Imagine the walk as a conversation unfolding."
+      }
+    },
+    {
+      "title": "Seine River Walk (Near Notre-Dame)",
+      "movie_name": "Before Sunset",
+      "coordinates": {
+        "lat": 48.8530,
+        "lng": 2.3499
+      },
+      "description": "Much of Before Sunset takes place while walking and talking along the Seine. The city becomes a backdrop to connection — fluid, unplanned, and shaped by time. Paris here is not a destination, but a shared moment.",
+      "audio": {
+        "title": "Nina Simone - Just in Time",
+        "spotify_link": "https://open.spotify.com/search/Nina%20Simone%20Just%20in%20Time",
+        "youtube_link": "https://www.youtube.com/results?search_query=Nina+Simone+Just+in+Time",
+        "note": "Play as you walk along the river. Keep a relaxed pace and let the surroundings drift in and out of focus."
+      }
+    },
+    {
+      "title": "Place Dauphine",
+      "movie_name": "Midnight in Paris",
+      "coordinates": {
+        "lat": 48.8554,
+        "lng": 2.3412
+      },
+      "description": "A quiet square that appears in Midnight in Paris, Place Dauphine captures the film's sense of nostalgia and longing for another time. It's a space that feels slightly removed from the present — fitting for a story about slipping between eras.",
+      "audio": {
+        "title": "Sidney Bechet - Si Tu Vois Ma Mère",
+        "spotify_link": "https://open.spotify.com/search/Sidney%20Bechet%20Si%20Tu%20Vois%20Ma%20Mere",
+        "youtube_link": "https://www.youtube.com/results?search_query=Sidney+Bechet+Si+Tu+Vois+Ma+Mere",
+        "note": "Play as you enter the square. Pause for a moment — this is a place to linger."
+      }
+    },
+    {
+      "title": "Pont Alexandre III",
+      "movie_name": "Midnight in Paris",
+      "coordinates": {
+        "lat": 48.8638,
+        "lng": 2.3130
+      },
+      "description": "One of the most iconic bridges in Paris, featured in Midnight in Paris. The film uses locations like this to blur past and present, suggesting that every era believes another was more beautiful. Standing here, it's easy to understand why.",
+      "audio": {
+        "title": "Cole Porter - Let's Do It (Let's Fall in Love)",
+        "spotify_link": "https://open.spotify.com/search/Cole%20Porter%20Lets%20Do%20It",
+        "youtube_link": "https://www.youtube.com/results?search_query=Cole+Porter+Let's+Do+It+Let's+Fall+in+Love",
+        "note": "Play as you cross the bridge. Let the movement mirror the idea of drifting between moments in time."
+      }
+    }
+  ]
+}
