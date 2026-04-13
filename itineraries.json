@@ -1,0 +1,10 @@
+[
+  {
+    "file": "movie_walks.json",
+    "walk_name": "Concrete Futures: Dystopian Thamesmead",
+    "city": "London",
+    "duration_minutes": 90,
+    "distance_km": 2.0,
+    "stops": 5
+  }
+]
