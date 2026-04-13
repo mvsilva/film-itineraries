@@ -7,76 +7,81 @@
     {
       "title": "Southmere Lake",
       "movie_name": "A Clockwork Orange",
-      "coordinates": {
-        "lat": 51.5026,
-        "lng": 0.1186
+      "coordinates": { "lat": 51.5026, "lng": 0.1186 },
+      "description": "Southmere Lake appears in A Clockwork Orange as part of the film's unsettling, open urban landscape.",
+      "image": {
+        "url": "https://picsum.photos/seed/thamesmead-lake/800/450",
+        "caption": "Southmere Lake, Thamesmead"
       },
-      "description": "Southmere Lake appears in A Clockwork Orange as part of the film’s unsettling, open urban landscape. Built as part of a utopian post-war housing vision, Thamesmead was designed to bring light, space, and modernity to Londoners. On screen, however, the same openness becomes alienating.",
       "audio": {
         "title": "Title Music (A Clockwork Orange)",
         "spotify_link": "https://open.spotify.com/search/A%20Clockwork%20Orange%20Title%20Music",
         "youtube_link": "https://www.youtube.com/results?search_query=A+Clockwork+Orange+Title+Music",
-        "note": "Press play as you approach the lake. Let the music settle before you start walking."
+        "note": "Press play as you approach the lake."
       }
     },
     {
       "title": "Binsey Walk Elevated Pathways",
       "movie_name": "A Clockwork Orange",
-      "coordinates": {
-        "lat": 51.5032,
-        "lng": 0.1198
+      "coordinates": { "lat": 51.5032, "lng": 0.1198 },
+      "description": "These elevated walkways were designed to separate pedestrians from traffic.",
+      "image": {
+        "url": "https://picsum.photos/seed/thamesmead-walkway/800/450",
+        "caption": "Elevated walkways in Thamesmead"
       },
-      "description": "These elevated walkways were designed to separate pedestrians from traffic, a hallmark of modernist urban planning. In practice, they became empty corridors of movement.",
       "audio": {
         "title": "Wendy Carlos - Timesteps",
         "spotify_link": "https://open.spotify.com/search/Wendy%20Carlos%20Timesteps",
         "youtube_link": "https://www.youtube.com/results?search_query=Wendy+Carlos+Timesteps",
-        "note": "Play as you walk along the pathway. Keep a steady pace and notice the repetition of the architecture."
+        "note": "Play as you walk along the pathway."
       }
     },
     {
       "title": "Tavy Bridge",
       "movie_name": "A Clockwork Orange",
-      "coordinates": {
-        "lat": 51.5037,
-        "lng": 0.1211
+      "coordinates": { "lat": 51.5037, "lng": 0.1211 },
+      "description": "Tavy Bridge is one of the most recognisable locations from A Clockwork Orange.",
+      "image": {
+        "url": "https://picsum.photos/seed/thamesmead-bridge/800/450",
+        "caption": "Tavy Bridge, Thamesmead"
       },
-      "description": "Tavy Bridge is one of the most recognisable locations from A Clockwork Orange. Its stark concrete symmetry creates a visually controlled environment.",
       "audio": {
-        "title": "Beethoven - Symphony No. 9 (2nd Movement)",
-        "spotify_link": "https://open.spotify.com/search/Beethoven%209th%202nd%20movement",
-        "youtube_link": "https://www.youtube.com/results?search_query=Beethoven+9th+2nd+movement",
-        "note": "Start just before stepping onto the bridge. Let the scale of the space match the intensity of the music."
+        "title": "Beethoven Symphony No. 9",
+        "spotify_link": "https://open.spotify.com/search/Beethoven%209th",
+        "youtube_link": "https://www.youtube.com/results?search_query=Beethoven+9th",
+        "note": "Start before stepping onto the bridge."
       }
     },
     {
       "title": "Coralline Walk Housing Blocks",
       "movie_name": "Brazil",
-      "coordinates": {
-        "lat": 51.5041,
-        "lng": 0.1223
+      "coordinates": { "lat": 51.5041, "lng": 0.1223 },
+      "description": "In Brazil, similar housing estates depict a world dominated by bureaucracy.",
+      "image": {
+        "url": "https://picsum.photos/seed/thamesmead-housing/800/450",
+        "caption": "Brutalist housing in Thamesmead"
       },
-      "description": "In Brazil, similar housing estates are used to depict a world dominated by bureaucracy and impersonal systems.",
       "audio": {
-        "title": "Brazil Theme (Aquarela do Brasil)",
+        "title": "Brazil Theme",
         "spotify_link": "https://open.spotify.com/search/Brazil%20movie%20theme",
-        "youtube_link": "https://www.youtube.com/results?search_query=Brazil+movie+theme+Aquarela+do+Brasil",
-        "note": "This is intentionally ironic — cheerful music against an oppressive environment. Let that contrast sink in."
+        "youtube_link": "https://www.youtube.com/results?search_query=Brazil+movie+theme",
+        "note": "Notice the contrast between sound and space."
       }
     },
     {
       "title": "Thamesmead Waterfront",
       "movie_name": "Children of Men",
-      "coordinates": {
-        "lat": 51.5050,
-        "lng": 0.1235
+      "coordinates": { "lat": 51.5050, "lng": 0.1235 },
+      "description": "Children of Men uses locations like Thamesmead by layering subtle signs of control.",
+      "image": {
+        "url": "https://picsum.photos/seed/thamesmead-waterfront/800/450",
+        "caption": "Thamesmead waterfront"
       },
-      "description": "Children of Men uses locations like Thamesmead by layering subtle signs of control and decay onto familiar environments.",
       "audio": {
-        "title": "Children of Men - 'Fragments of a Prayer'",
-        "spotify_link": "https://open.spotify.com/search/Children%20of%20Men%20Fragments%20of%20a%20Prayer",
-        "youtube_link": "https://www.youtube.com/results?search_query=Children+of+Men+Fragments+of+a+Prayer",
-        "note": "Play at the waterfront. This is a moment to slow down and reflect before ending the walk."
+        "title": "Fragments of a Prayer",
+        "spotify_link": "https://open.spotify.com/search/Fragments%20of%20a%20Prayer",
+        "youtube_link": "https://www.youtube.com/results?search_query=Fragments+of+a+Prayer",
+        "note": "Play at the waterfront and slow down."
       }
     }
   ]
