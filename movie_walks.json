@@ -8,9 +8,9 @@
       "title": "Southmere Lake",
       "movie_name": "A Clockwork Orange",
       "coordinates": { "lat": 51.5026, "lng": 0.1186 },
-      "description": "Southmere Lake appears in A Clockwork Orange as part of the film's unsettling, open urban landscape.",
+      "description": "Southmere Lake appears in A Clockwork Orange as part of the film’s unsettling, open urban landscape.",
       "image": {
-        "url": "https://picsum.photos/seed/thamesmead-lake/800/450",
+        "url": "https://picsum.photos/id/1011/1600/900",
         "caption": "Southmere Lake, Thamesmead"
       },
       "audio": {
@@ -26,7 +26,7 @@
       "coordinates": { "lat": 51.5032, "lng": 0.1198 },
       "description": "These elevated walkways were designed to separate pedestrians from traffic.",
       "image": {
-        "url": "https://picsum.photos/seed/thamesmead-walkway/800/450",
+        "url": "https://picsum.photos/id/1006/1600/900",
         "caption": "Elevated walkways in Thamesmead"
       },
       "audio": {
@@ -42,7 +42,7 @@
       "coordinates": { "lat": 51.5037, "lng": 0.1211 },
       "description": "Tavy Bridge is one of the most recognisable locations from A Clockwork Orange.",
       "image": {
-        "url": "https://picsum.photos/seed/thamesmead-bridge/800/450",
+        "url": "https://picsum.photos/id/1025/1600/900",
         "caption": "Tavy Bridge, Thamesmead"
       },
       "audio": {
@@ -58,7 +58,7 @@
       "coordinates": { "lat": 51.5041, "lng": 0.1223 },
       "description": "In Brazil, similar housing estates depict a world dominated by bureaucracy.",
       "image": {
-        "url": "https://picsum.photos/seed/thamesmead-housing/800/450",
+        "url": "https://picsum.photos/id/1031/1600/900",
         "caption": "Brutalist housing in Thamesmead"
       },
       "audio": {
@@ -74,7 +74,7 @@
       "coordinates": { "lat": 51.5050, "lng": 0.1235 },
       "description": "Children of Men uses locations like Thamesmead by layering subtle signs of control.",
       "image": {
-        "url": "https://picsum.photos/seed/thamesmead-waterfront/800/450",
+        "url": "https://picsum.photos/id/1043/1600/900",
         "caption": "Thamesmead waterfront"
       },
       "audio": {
