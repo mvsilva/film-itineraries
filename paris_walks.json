@@ -10,7 +10,7 @@
       "coordinates": { "lat": 48.8846, "lng": 2.3325 },
       "description": "This café is where Amélie works, turning everyday life into quiet magic.",
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cafe_des_Deux_Moulins.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Caf%C3%A9_des_2_Moulins_June_2010.jpg",
         "caption": "Café des Deux Moulins"
       },
       "audio": {
@@ -26,7 +26,7 @@
       "coordinates": { "lat": 48.8863, "lng": 2.3346 },
       "description": "A dreamlike street capturing the emotional tone of Amélie.",
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rue_de_l_Abreuvoir_Paris.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Rue_de_l%27Abreuvoir.jpg",
         "caption": "Rue de l’Abreuvoir"
       },
       "audio": {
@@ -42,7 +42,7 @@
       "coordinates": { "lat": 48.8527, "lng": 2.3470 },
       "description": "The starting point of a long, unfolding conversation in Before Sunset.",
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Shakespeare_and_Company_Paris.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Shakespeare_and_Co.jpg",
         "caption": "Shakespeare and Company"
       },
       "audio": {
@@ -58,7 +58,7 @@
       "coordinates": { "lat": 48.8530, "lng": 2.3499 },
       "description": "A space defined by movement and conversation.",
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Seine_riverbank_Paris.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Walk_%40_Rive_droite_%40_Seine_%40_Paris_%2825463204301%29.jpg",
         "caption": "Seine riverbank"
       },
       "audio": {
@@ -74,7 +74,7 @@
       "coordinates": { "lat": 48.8554, "lng": 2.3412 },
       "description": "A quiet square that feels slightly outside of time.",
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Place_Dauphine_Paris.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Paris_Place_Dauphine.jpg",
         "caption": "Place Dauphine"
       },
       "audio": {
@@ -90,7 +90,7 @@
       "coordinates": { "lat": 48.8638, "lng": 2.3130 },
       "description": "A bridge that captures Paris at its most cinematic.",
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pont_Alexandre_III_Paris.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Pont_Alexandre_III%2C_Paris_8th_025.JPG",
         "caption": "Pont Alexandre III"
       },
       "audio": {
