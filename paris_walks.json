@@ -10,27 +10,27 @@
       "coordinates": { "lat": 48.8846, "lng": 2.3325 },
       "description": "This café is where Amélie works, turning everyday life into quiet magic.",
       "image": {
-        "url": "https://source.unsplash.com/1600x900/?montmartre,cafe,paris",
+        "url": "https://picsum.photos/seed/montmartre-cafe/800/450",
         "caption": "Café des Deux Moulins, Montmartre"
       },
       "audio": {
-        "title": "Comptine d’un autre été",
+        "title": "Comptine d'un autre été",
         "spotify_link": "https://open.spotify.com/search/Yann%20Tiersen%20Comptine",
         "youtube_link": "https://www.youtube.com/results?search_query=Yann+Tiersen+Comptine",
         "note": "Start as you approach the café."
       }
     },
     {
-      "title": "Rue de l’Abreuvoir",
+      "title": "Rue de l'Abreuvoir",
       "movie_name": "Amelie",
       "coordinates": { "lat": 48.8863, "lng": 2.3346 },
       "description": "A dreamlike street capturing the emotional tone of Amélie.",
       "image": {
-        "url": "https://source.unsplash.com/1600x900/?montmartre,street,paris",
-        "caption": "Rue de l’Abreuvoir"
+        "url": "https://picsum.photos/seed/montmartre-street/800/450",
+        "caption": "Rue de l'Abreuvoir"
       },
       "audio": {
-        "title": "La valse d’Amelie",
+        "title": "La valse d'Amelie",
         "spotify_link": "https://open.spotify.com/search/La%20valse%20d%20Amelie",
         "youtube_link": "https://www.youtube.com/results?search_query=La+valse+d%27Amelie",
         "note": "Walk slowly and take it in."
@@ -42,7 +42,7 @@
       "coordinates": { "lat": 48.8527, "lng": 2.3470 },
       "description": "The starting point of a long, unfolding conversation in Before Sunset.",
       "image": {
-        "url": "https://source.unsplash.com/1600x900/?shakespeare-and-company,paris",
+        "url": "https://picsum.photos/seed/paris-bookshop/800/450",
         "caption": "Shakespeare and Company bookshop"
       },
       "audio": {
@@ -58,7 +58,7 @@
       "coordinates": { "lat": 48.8530, "lng": 2.3499 },
       "description": "A space defined by movement and conversation.",
       "image": {
-        "url": "https://source.unsplash.com/1600x900/?seine,paris,river",
+        "url": "https://picsum.photos/seed/paris-seine/800/450",
         "caption": "Walking along the Seine"
       },
       "audio": {
@@ -74,7 +74,7 @@
       "coordinates": { "lat": 48.8554, "lng": 2.3412 },
       "description": "A quiet square that feels slightly outside of time.",
       "image": {
-        "url": "https://source.unsplash.com/1600x900/?place-dauphine,paris",
+        "url": "https://picsum.photos/seed/paris-dauphine/800/450",
         "caption": "Place Dauphine"
       },
       "audio": {
@@ -90,11 +90,11 @@
       "coordinates": { "lat": 48.8638, "lng": 2.3130 },
       "description": "A bridge that captures Paris at its most cinematic.",
       "image": {
-        "url": "https://source.unsplash.com/1600x900/?pont-alexandre-iii,paris",
+        "url": "https://picsum.photos/seed/paris-bridge/800/450",
         "caption": "Pont Alexandre III"
       },
       "audio": {
-        "title": "Let’s Do It (Let’s Fall in Love)",
+        "title": "Let's Do It (Let's Fall in Love)",
         "spotify_link": "https://open.spotify.com/search/Lets%20Do%20It%20Cole%20Porter",
         "youtube_link": "https://www.youtube.com/results?search_query=Lets+Do+It+Lets+Fall+in+Love",
         "note": "Play while crossing the bridge."
