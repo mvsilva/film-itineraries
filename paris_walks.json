@@ -10,8 +10,8 @@
       "coordinates": { "lat": 48.8846, "lng": 2.3325 },
       "description": "This café is where Amélie works, turning everyday life into quiet magic.",
       "image": {
-        "url": "https://picsum.photos/id/1067/1600/900",
-        "caption": "Café des Deux Moulins, Montmartre"
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Cafe_des_Deux_Moulins.jpg",
+        "caption": "Café des Deux Moulins"
       },
       "audio": {
         "title": "Comptine d’un autre été",
@@ -26,7 +26,7 @@
       "coordinates": { "lat": 48.8863, "lng": 2.3346 },
       "description": "A dreamlike street capturing the emotional tone of Amélie.",
       "image": {
-        "url": "https://picsum.photos/id/1074/1600/900",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Rue_de_l_Abreuvoir_Paris.jpg",
         "caption": "Rue de l’Abreuvoir"
       },
       "audio": {
@@ -42,8 +42,8 @@
       "coordinates": { "lat": 48.8527, "lng": 2.3470 },
       "description": "The starting point of a long, unfolding conversation in Before Sunset.",
       "image": {
-        "url": "https://picsum.photos/id/1084/1600/900",
-        "caption": "Shakespeare and Company bookshop"
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shakespeare_and_Company_Paris.jpg",
+        "caption": "Shakespeare and Company"
       },
       "audio": {
         "title": "A Waltz for a Night",
@@ -58,8 +58,8 @@
       "coordinates": { "lat": 48.8530, "lng": 2.3499 },
       "description": "A space defined by movement and conversation.",
       "image": {
-        "url": "https://picsum.photos/id/1056/1600/900",
-        "caption": "Walking along the Seine"
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Seine_riverbank_Paris.jpg",
+        "caption": "Seine riverbank"
       },
       "audio": {
         "title": "Just in Time",
@@ -74,7 +74,7 @@
       "coordinates": { "lat": 48.8554, "lng": 2.3412 },
       "description": "A quiet square that feels slightly outside of time.",
       "image": {
-        "url": "https://picsum.photos/id/1040/1600/900",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Place_Dauphine_Paris.jpg",
         "caption": "Place Dauphine"
       },
       "audio": {
@@ -90,7 +90,7 @@
       "coordinates": { "lat": 48.8638, "lng": 2.3130 },
       "description": "A bridge that captures Paris at its most cinematic.",
       "image": {
-        "url": "https://picsum.photos/id/1036/1600/900",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Pont_Alexandre_III_Paris.jpg",
         "caption": "Pont Alexandre III"
       },
       "audio": {
