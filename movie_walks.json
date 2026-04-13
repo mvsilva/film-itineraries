@@ -10,7 +10,7 @@
       "coordinates": { "lat": 51.5026, "lng": 0.1186 },
       "description": "Southmere Lake appears in A Clockwork Orange as part of the film’s unsettling, open urban landscape.",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Southmere_Lake_Thamesmead.jpg",
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Southmere_Lake.jpg",
         "caption": "Southmere Lake, Thamesmead"
       },
       "audio": {
@@ -26,7 +26,7 @@
       "coordinates": { "lat": 51.5032, "lng": 0.1198 },
       "description": "These elevated walkways were designed to separate pedestrians from traffic.",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Thamesmead_walkway.jpg",
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Thamesmead_walkway.jpg",
         "caption": "Elevated walkways, Thamesmead"
       },
       "audio": {
@@ -42,7 +42,7 @@
       "coordinates": { "lat": 51.5037, "lng": 0.1211 },
       "description": "Tavy Bridge is one of the most recognisable locations from A Clockwork Orange.",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Tavy_Bridge_Thamesmead.jpg",
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tavy_Bridge_Thamesmead.jpg",
         "caption": "Tavy Bridge, Thamesmead"
       },
       "audio": {
@@ -58,8 +58,8 @@
       "coordinates": { "lat": 51.5041, "lng": 0.1223 },
       "description": "In Brazil, similar housing estates depict a world dominated by bureaucracy.",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Thamesmead_estate.jpg",
-        "caption": "Housing estate, Thamesmead"
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Thamesmead_estate.jpg",
+        "caption": "Thamesmead estate"
       },
       "audio": {
         "title": "Brazil Theme",
@@ -74,7 +74,7 @@
       "coordinates": { "lat": 51.5050, "lng": 0.1235 },
       "description": "Children of Men uses locations like Thamesmead by layering subtle signs of control.",
       "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Thamesmead_waterfront.jpg",
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Thamesmead_waterfront.jpg",
         "caption": "Thamesmead waterfront"
       },
       "audio": {
