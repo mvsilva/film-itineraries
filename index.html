@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Film Itineraries</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    /* ── Reset & base ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0d0d;
+      --surface:   #161616;
+      --border:    #2a2a2a;
+      --accent:    #e8c86e;   /* warm gold / film-reel amber */
+      --accent2:   #c75e3a;   /* deep red */
+      --text:      #d4cfc8;
+      --muted:     #7a756e;
+      --sidebar-w: 380px;
+    }
+
+    html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif; background: var(--bg); color: var(--text); }
+
+    /* ── Layout ──────────────────────────────────────────────────── */
+    #app { display: flex; height: 100vh; }
+
+    /* ── Sidebar ─────────────────────────────────────────────────── */
+    #sidebar {
+      width: var(--sidebar-w);
+      min-width: var(--sidebar-w);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #sidebar-header {
+      padding: 28px 24px 20px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .walk-meta {
+      display: flex;
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .meta-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+    }
+
+    .meta-value {
+      font-size: 13px;
+      color: var(--accent);
+      font-family: 'Courier New', monospace;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      color: #fff;
+    }
+
+    .city-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: 'Courier New', monospace;
+      margin-bottom: 6px;
+    }
+
+    /* ── Stop list ───────────────────────────────────────────────── */
+    #stop-list {
+      overflow-y: auto;
+      flex: 1;
+      padding: 12px 0;
+    }
+
+    #stop-list::-webkit-scrollbar { width: 4px; }
+    #stop-list::-webkit-scrollbar-track { background: transparent; }
+    #stop-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .stop-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 24px;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: background 0.15s, border-color 0.15s;
+      position: relative;
+    }
+
+    .stop-item:hover { background: rgba(255,255,255,0.03); }
+    .stop-item.active {
+      background: rgba(232, 200, 110, 0.06);
+      border-left-color: var(--accent);
+    }
+
+    /* vertical connector line between stops */
+    .stop-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 36px;   /* center of the badge (24px padding + half of 24px badge) */
+      bottom: -12px;
+      width: 1px;
+      height: 24px;
+      background: var(--border);
+    }
+
+    .stop-badge {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .stop-item.active .stop-badge {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .stop-info { flex: 1; min-width: 0; }
+
+    .stop-title {
+      font-size: 14px;
+      color: #e8e4dd;
+      line-height: 1.35;
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .stop-movie {
+      font-size: 11px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent2);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Detail panel ────────────────────────────────────────────── */
+    #detail-panel {
+      flex-shrink: 0;
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      max-height: 240px;
+      overflow-y: auto;
+      background: var(--bg);
+      transition: max-height 0.25s ease;
+    }
+
+    #detail-panel::-webkit-scrollbar { width: 4px; }
+    #detail-panel::-webkit-scrollbar-track { background: transparent; }
+    #detail-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    #detail-panel.empty { display: none; }
+
+    .detail-stop-num {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .detail-title {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .detail-movie {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: var(--accent2);
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .detail-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    /* ── Map ─────────────────────────────────────────────────────── */
+    #map {
+      flex: 1;
+      height: 100%;
+      background: #111;
+    }
+
+    /* ── Custom marker ───────────────────────────────────────────── */
+    .film-marker {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, transform 0.15s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .film-marker.active {
+      border-color: var(--accent) !important;
+      color: var(--accent) !important;
+      transform: scale(1.2);
+      z-index: 1000 !important;
+    }
+
+    /* Leaflet popup overrides */
+    .leaflet-popup-content-wrapper {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+      color: var(--text);
+      padding: 0;
+    }
+
+    .leaflet-popup-content {
+      margin: 0;
+      padding: 16px 18px;
+      width: 240px !important;
+    }
+
+    .leaflet-popup-tip { background: var(--surface); }
+    .leaflet-popup-close-button { color: var(--muted) !important; top: 8px !important; right: 10px !important; font-size: 18px !important; }
+
+    .popup-num {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .popup-title { font-size: 14px; color: #fff; margin-bottom: 3px; }
+
+    .popup-movie {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--accent2);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Audio section ───────────────────────────────────────────── */
+    .audio-section {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .audio-label {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .audio-track-title {
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .audio-links {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .audio-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      font-weight: bold;
+    }
+
+    .audio-btn:hover { opacity: 0.8; }
+
+    .audio-btn.spotify {
+      background: #1DB954;
+      color: #000;
+    }
+
+    .audio-btn.youtube {
+      background: #FF0000;
+      color: #fff;
+    }
+
+    .audio-note {
+      font-size: 12px;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Popup audio links */
+    .popup-audio-links {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .popup-audio-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: opacity 0.15s;
+    }
+
+    .popup-audio-btn:hover { opacity: 0.8; }
+    .popup-audio-btn.spotify { background: #1DB954; color: #000; }
+    .popup-audio-btn.youtube { background: #FF0000; color: #fff; }
+
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      #app { flex-direction: column; }
+      #sidebar { width: 100%; min-width: 0; height: 50vh; border-right: none; border-bottom: 1px solid var(--border); }
+      #map { height: 50vh; }
+      :root { --sidebar-w: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ── Sidebar ── -->
+  <aside id="sidebar">
+    <div id="sidebar-header">
+      <div class="city-label" id="city-label"></div>
+      <h1 id="walk-name"></h1>
+      <div class="walk-meta">
+        <div class="meta-item">
+          <span class="meta-label">Duration</span>
+          <span class="meta-value" id="meta-duration"></span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Distance</span>
+          <span class="meta-value" id="meta-distance"></span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Stops</span>
+          <span class="meta-value" id="meta-stops"></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="stop-list"></div>
+
+    <div id="detail-panel" class="empty"></div>
+  </aside>
+
+  <!-- ── Map ── -->
+  <div id="map"></div>
+
+</div>
+
+<script>
+// ── Load data ─────────────────────────────────────────────────────────────────
+// Inline the JSON so the page works when opened directly (file://)
+const DATA_URL = 'movie_walks.json';
+
+async function loadData() {
+  try {
+    const res = await fetch(DATA_URL);
+    if (!res.ok) throw new Error('fetch failed');
+    return res.json();
+  } catch {
+    // fallback: return null and show error
+    return null;
+  }
+}
+
+// ── Map setup ─────────────────────────────────────────────────────────────────
+const map = L.map('map', { zoomControl: false });
+
+// Dark tile layer (CartoDB Dark Matter — no API key)
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+L.control.zoom({ position: 'topright' }).addTo(map);
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let activeIndex = null;
+const markerEls = [];   // DOM elements for markers
+const leafletMarkers = [];
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function setActive(idx) {
+  activeIndex = idx;
+
+  // sidebar items
+  document.querySelectorAll('.stop-item').forEach((el, i) => {
+    el.classList.toggle('active', i === idx);
+  });
+
+  // marker DOM elements
+  markerEls.forEach((el, i) => {
+    el.classList.toggle('active', i === idx);
+  });
+
+  // detail panel
+  const panel = document.getElementById('detail-panel');
+  if (idx === null) {
+    panel.classList.add('empty');
+    return;
+  }
+
+  const point = window._walkData.points[idx];
+  panel.classList.remove('empty');
+
+  const audioHTML = point.audio ? `
+    <div class="audio-section">
+      <div class="audio-label">Listen at this stop</div>
+      <div class="audio-track-title">${point.audio.title}</div>
+      <div class="audio-links">
+        <a class="audio-btn spotify" href="${point.audio.spotify_link}" target="_blank" rel="noopener">
+          &#9654; Spotify
+        </a>
+        <a class="audio-btn youtube" href="${point.audio.youtube_link}" target="_blank" rel="noopener">
+          &#9654; YouTube
+        </a>
+      </div>
+      ${point.audio.note ? `<div class="audio-note">${point.audio.note}</div>` : ''}
+    </div>
+  ` : '';
+
+  panel.innerHTML = `
+    <div class="detail-stop-num">Stop ${idx + 1} of ${window._walkData.points.length}</div>
+    <div class="detail-title">${point.title}</div>
+    <div class="detail-movie">${point.movie_name}</div>
+    <div class="detail-desc">${point.description}</div>
+    ${audioHTML}
+  `;
+}
+
+function buildSidebar(data) {
+  document.getElementById('city-label').textContent = data.city;
+  document.getElementById('walk-name').textContent = data.walk_name;
+  document.getElementById('meta-duration').textContent = data.duration_minutes + ' min';
+  document.getElementById('meta-distance').textContent = data.distance_km + ' km';
+  document.getElementById('meta-stops').textContent = data.points.length;
+
+  const list = document.getElementById('stop-list');
+  data.points.forEach((pt, i) => {
+    const item = document.createElement('div');
+    item.className = 'stop-item';
+    item.dataset.index = i;
+    item.innerHTML = `
+      <div class="stop-badge">${i + 1}</div>
+      <div class="stop-info">
+        <div class="stop-title">${pt.title}</div>
+        <div class="stop-movie">${pt.movie_name}</div>
+      </div>
+    `;
+    item.addEventListener('click', () => {
+      setActive(i);
+      map.flyTo([pt.coordinates.lat, pt.coordinates.lng], 16, { duration: 0.8 });
+      leafletMarkers[i].openPopup();
+    });
+    list.appendChild(item);
+  });
+}
+
+function buildMap(data) {
+  const coords = data.points.map(p => [p.coordinates.lat, p.coordinates.lng]);
+
+  // Route polyline
+  L.polyline(coords, {
+    color: '#e8c86e',
+    weight: 2,
+    opacity: 0.5,
+    dashArray: '6 8'
+  }).addTo(map);
+
+  // Markers
+  data.points.forEach((pt, i) => {
+    const el = document.createElement('div');
+    el.className = 'film-marker';
+    el.textContent = i + 1;
+    markerEls.push(el);
+
+    const icon = L.divIcon({
+      html: el,
+      className: '',
+      iconSize: [34, 34],
+      iconAnchor: [17, 17],
+      popupAnchor: [0, -20]
+    });
+
+    const popupAudioHTML = pt.audio ? `
+      <div class="popup-audio-links">
+        <a class="popup-audio-btn spotify" href="${pt.audio.spotify_link}" target="_blank" rel="noopener">&#9654; Spotify</a>
+        <a class="popup-audio-btn youtube" href="${pt.audio.youtube_link}" target="_blank" rel="noopener">&#9654; YouTube</a>
+      </div>
+    ` : '';
+
+    const marker = L.marker([pt.coordinates.lat, pt.coordinates.lng], { icon })
+      .addTo(map)
+      .bindPopup(`
+        <div class="popup-num">Stop ${i + 1}</div>
+        <div class="popup-title">${pt.title}</div>
+        <div class="popup-movie">${pt.movie_name}</div>
+        ${popupAudioHTML}
+      `, { maxWidth: 260 });
+
+    marker.on('click', () => setActive(i));
+    marker.on('popupopen', () => setActive(i));
+    marker.on('popupclose', () => {
+      // only clear if no sidebar click is about to set a new one
+      setTimeout(() => {
+        if (activeIndex === i) {
+          // keep detail panel open; just deactivate visual state on map
+        }
+      }, 50);
+    });
+
+    leafletMarkers.push(marker);
+  });
+
+  // Fit map to route
+  map.fitBounds(coords, { padding: [40, 40] });
+}
+
+// ── Boot ──────────────────────────────────────────────────────────────────────
+(async () => {
+  const data = await loadData();
+  if (!data) {
+    document.getElementById('walk-name').textContent = 'Could not load movie_walks.json';
+    return;
+  }
+  window._walkData = data;
+  buildSidebar(data);
+  buildMap(data);
+})();
+</script>
+</body>
+</html>
