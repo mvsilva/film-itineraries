@@ -26,8 +26,69 @@
 
     html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif; background: var(--bg); color: var(--text); }
 
+    /* ── Film grain overlay ──────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 200;
+      opacity: 0.018;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ── Site header ─────────────────────────────────────────────── */
+    :root { --header-h: 72px; }
+
+    .site-header {
+      position: relative;
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    /* letterbox bars */
+    .site-header::before,
+    .site-header::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 18px;
+      background: #000;
+    }
+    .site-header::before { top: 0; }
+    .site-header::after  { bottom: 0; }
+
+    .header-brand {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-back {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      transition: color 0.15s;
+    }
+    .header-back:hover { color: var(--accent); }
+
     /* ── Layout ──────────────────────────────────────────────────── */
-    #app { display: flex; height: 100vh; }
+    #app { display: flex; height: calc(100vh - var(--header-h)); }
 
     /* ── Sidebar ─────────────────────────────────────────────────── */
     #sidebar {
@@ -384,38 +445,28 @@
     .popup-audio-btn.spotify { background: #1DB954; color: #000; }
     .popup-audio-btn.youtube { background: #FF0000; color: #fff; }
 
-    /* ── Back link ───────────────────────────────────────────────── */
-    #back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Courier New', monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      margin-bottom: 14px;
-      transition: color 0.15s;
-    }
-    #back-link:hover { color: var(--accent); }
-
     /* ── Responsive ──────────────────────────────────────────────── */
     @media (max-width: 680px) {
+      :root { --header-h: 60px; }
+      .site-header::before, .site-header::after { height: 14px; }
       #app { flex-direction: column; }
-      #sidebar { width: 100%; min-width: 0; height: 50vh; border-right: none; border-bottom: 1px solid var(--border); }
-      #map { height: 50vh; }
+      #sidebar { width: 100%; min-width: 0; height: 50%; border-right: none; border-bottom: 1px solid var(--border); }
+      #map { flex: 1; }
       :root { --sidebar-w: 100%; }
     }
   </style>
 </head>
 <body>
+<header class="site-header">
+  <span class="header-brand">Film Itineraries</span>
+  <a class="header-back" href="index.html">&#8592; All itineraries</a>
+</header>
+
 <div id="app">
 
   <!-- ── Sidebar ── -->
   <aside id="sidebar">
     <div id="sidebar-header">
-      <a id="back-link" href="index.html">&#8592; All itineraries</a>
       <div class="city-label" id="city-label"></div>
       <h1 id="walk-name"></h1>
       <div class="walk-meta">
