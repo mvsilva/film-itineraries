@@ -14,13 +14,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0d0d0d;
-      --surface:   #161616;
-      --border:    #2a2a2a;
-      --accent:    #e8c86e;   /* warm gold / film-reel amber */
-      --accent2:   #c75e3a;   /* deep red */
-      --text:      #d4cfc8;
-      --muted:     #7a756e;
+      --bg:        #f4efe6;
+      --surface:   #ede7db;
+      --border:    #d4c9b8;
+      --accent:    #8c6d2f;   /* dark amber */
+      --accent2:   #8b3a20;   /* deep terracotta */
+      --text:      #2e2820;
+      --muted:     #9a9088;
       --sidebar-w: 380px;
     }
 
@@ -33,7 +33,7 @@
     #sidebar {
       width: var(--sidebar-w);
       min-width: var(--sidebar-w);
-      background: var(--surface);
+      background: var(--bg);
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
@@ -41,7 +41,7 @@
     }
 
     #sidebar-header {
-      padding: 28px 24px 20px;
+      padding: 24px 24px 18px;
       border-bottom: 1px solid var(--border);
       flex-shrink: 0;
     }
@@ -73,11 +73,11 @@
     }
 
     h1 {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: normal;
       line-height: 1.3;
       letter-spacing: 0.02em;
-      color: #fff;
+      color: var(--text);
     }
 
     .city-label {
@@ -111,17 +111,16 @@
       position: relative;
     }
 
-    .stop-item:hover { background: rgba(255,255,255,0.03); }
+    .stop-item:hover { background: rgba(0,0,0,0.03); }
     .stop-item.active {
-      background: rgba(232, 200, 110, 0.06);
+      background: rgba(140, 109, 47, 0.07);
       border-left-color: var(--accent);
     }
 
-    /* vertical connector line between stops */
     .stop-item:not(:last-child)::after {
       content: '';
       position: absolute;
-      left: 36px;   /* center of the badge (24px padding + half of 24px badge) */
+      left: 36px;
       bottom: -12px;
       width: 1px;
       height: 24px;
@@ -133,7 +132,7 @@
       height: 28px;
       min-width: 28px;
       border-radius: 50%;
-      background: var(--bg);
+      background: var(--surface);
       border: 1.5px solid var(--border);
       display: flex;
       align-items: center;
@@ -154,7 +153,7 @@
 
     .stop-title {
       font-size: 14px;
-      color: #e8e4dd;
+      color: var(--text);
       line-height: 1.35;
       margin-bottom: 3px;
       white-space: nowrap;
@@ -174,9 +173,9 @@
       flex-shrink: 0;
       border-top: 1px solid var(--border);
       padding: 20px 24px;
-      max-height: 240px;
+      max-height: 340px;
       overflow-y: auto;
-      background: var(--bg);
+      background: var(--surface);
       transition: max-height 0.25s ease;
     }
 
@@ -197,7 +196,7 @@
 
     .detail-title {
       font-size: 16px;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 2px;
     }
 
@@ -207,6 +206,29 @@
       color: var(--accent2);
       letter-spacing: 0.08em;
       margin-bottom: 12px;
+    }
+
+    /* ── Stop image ──────────────────────────────────────────────── */
+    .detail-image-wrap {
+      margin-bottom: 12px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .detail-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .detail-image-caption {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      padding-top: 5px;
+      font-style: italic;
     }
 
     .detail-desc {
@@ -219,7 +241,6 @@
     #map {
       flex: 1;
       height: 100%;
-      background: #111;
     }
 
     /* ── Custom marker ───────────────────────────────────────────── */
@@ -227,7 +248,7 @@
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      background: var(--bg);
+      background: #fff;
       border: 2px solid var(--border);
       display: flex;
       align-items: center;
@@ -238,7 +259,7 @@
       color: var(--muted);
       cursor: pointer;
       transition: border-color 0.15s, color 0.15s, transform 0.15s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
     .film-marker.active {
@@ -250,10 +271,10 @@
 
     /* Leaflet popup overrides */
     .leaflet-popup-content-wrapper {
-      background: var(--surface);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 6px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
       color: var(--text);
       padding: 0;
     }
@@ -264,7 +285,7 @@
       width: 240px !important;
     }
 
-    .leaflet-popup-tip { background: var(--surface); }
+    .leaflet-popup-tip { background: var(--bg); }
     .leaflet-popup-close-button { color: var(--muted) !important; top: 8px !important; right: 10px !important; font-size: 18px !important; }
 
     .popup-num {
@@ -276,7 +297,7 @@
       margin-bottom: 4px;
     }
 
-    .popup-title { font-size: 14px; color: #fff; margin-bottom: 3px; }
+    .popup-title { font-size: 14px; color: var(--text); margin-bottom: 3px; }
 
     .popup-movie {
       font-family: 'Courier New', monospace;
@@ -329,16 +350,8 @@
     }
 
     .audio-btn:hover { opacity: 0.8; }
-
-    .audio-btn.spotify {
-      background: #1DB954;
-      color: #000;
-    }
-
-    .audio-btn.youtube {
-      background: #FF0000;
-      color: #fff;
-    }
+    .audio-btn.spotify { background: #1DB954; color: #000; }
+    .audio-btn.youtube { background: #FF0000; color: #fff; }
 
     .audio-note {
       font-size: 12px;
@@ -441,7 +454,6 @@ async function loadData() {
     if (!res.ok) throw new Error('fetch failed');
     return res.json();
   } catch {
-    // fallback: return null and show error
     return null;
   }
 }
@@ -449,8 +461,7 @@ async function loadData() {
 // ── Map setup ─────────────────────────────────────────────────────────────────
 const map = L.map('map', { zoomControl: false });
 
-// Dark tile layer (CartoDB Dark Matter — no API key)
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
   subdomains: 'abcd',
   maxZoom: 19
@@ -460,24 +471,21 @@ L.control.zoom({ position: 'topright' }).addTo(map);
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let activeIndex = null;
-const markerEls = [];   // DOM elements for markers
+const markerEls = [];
 const leafletMarkers = [];
 
 // ── Render ────────────────────────────────────────────────────────────────────
 function setActive(idx) {
   activeIndex = idx;
 
-  // sidebar items
   document.querySelectorAll('.stop-item').forEach((el, i) => {
     el.classList.toggle('active', i === idx);
   });
 
-  // marker DOM elements
   markerEls.forEach((el, i) => {
     el.classList.toggle('active', i === idx);
   });
 
-  // detail panel
   const panel = document.getElementById('detail-panel');
   if (idx === null) {
     panel.classList.add('empty');
@@ -486,6 +494,13 @@ function setActive(idx) {
 
   const point = window._walkData.points[idx];
   panel.classList.remove('empty');
+
+  const imageHTML = point.image ? `
+    <div class="detail-image-wrap">
+      <img class="detail-image" src="${point.image.url}" alt="${point.image.caption}" loading="lazy" />
+      <div class="detail-image-caption">${point.image.caption}</div>
+    </div>
+  ` : '';
 
   const audioHTML = point.audio ? `
     <div class="audio-section">
@@ -507,6 +522,7 @@ function setActive(idx) {
     <div class="detail-stop-num">Stop ${idx + 1} of ${window._walkData.points.length}</div>
     <div class="detail-title">${point.title}</div>
     <div class="detail-movie">${point.movie_name}</div>
+    ${imageHTML}
     <div class="detail-desc">${point.description}</div>
     ${audioHTML}
   `;
@@ -543,15 +559,13 @@ function buildSidebar(data) {
 function buildMap(data) {
   const coords = data.points.map(p => [p.coordinates.lat, p.coordinates.lng]);
 
-  // Route polyline
   L.polyline(coords, {
-    color: '#e8c86e',
-    weight: 2,
-    opacity: 0.5,
+    color: '#8c6d2f',
+    weight: 2.5,
+    opacity: 0.6,
     dashArray: '6 8'
   }).addTo(map);
 
-  // Markers
   data.points.forEach((pt, i) => {
     const el = document.createElement('div');
     el.className = 'film-marker';
@@ -585,18 +599,14 @@ function buildMap(data) {
     marker.on('click', () => setActive(i));
     marker.on('popupopen', () => setActive(i));
     marker.on('popupclose', () => {
-      // only clear if no sidebar click is about to set a new one
       setTimeout(() => {
-        if (activeIndex === i) {
-          // keep detail panel open; just deactivate visual state on map
-        }
+        if (activeIndex === i) { /* keep panel open */ }
       }, 50);
     });
 
     leafletMarkers.push(marker);
   });
 
-  // Fit map to route
   map.fitBounds(coords, { padding: [40, 40] });
 }
 
@@ -604,7 +614,7 @@ function buildMap(data) {
 (async () => {
   const data = await loadData();
   if (!data) {
-    document.getElementById('walk-name').textContent = 'Could not load movie_walks.json';
+    document.getElementById('walk-name').textContent = 'Could not load walk data.';
     return;
   }
   window._walkData = data;

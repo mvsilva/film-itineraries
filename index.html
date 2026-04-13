@@ -9,13 +9,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #0a0a0a;
-      --surface: #111111;
-      --border:  #222222;
-      --accent:  #e8c86e;
-      --accent2: #c75e3a;
-      --text:    #d4cfc8;
-      --muted:   #5a5550;
+      --bg:      #f4efe6;
+      --surface: #ede7db;
+      --border:  #d4c9b8;
+      --accent:  #8c6d2f;   /* dark amber */
+      --accent2: #8b3a20;   /* deep terracotta */
+      --text:    #2e2820;
+      --muted:   #9a9088;
     }
 
     html, body {
@@ -32,7 +32,7 @@
       inset: 0;
       pointer-events: none;
       z-index: 100;
-      opacity: 0.028;
+      opacity: 0.018;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
       background-size: 200px 200px;
     }
@@ -128,7 +128,7 @@
     }
 
     .itinerary-card:hover .card-num   { color: var(--accent); }
-    .itinerary-card:hover .card-title { color: #fff; }
+    .itinerary-card:hover .card-title { color: var(--text); }
     .itinerary-card:hover .card-arrow { color: var(--accent); transform: translateX(5px); }
 
     /* number */
