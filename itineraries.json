@@ -14,5 +14,13 @@
     "duration_minutes": 120,
     "distance_km": 3.5,
     "stops": 6
+  },
+  {
+    "file": "whimsical_london_walks.json",
+    "walk_name": "Whimsical London: Charm, Chance, and Colour",
+    "city": "London",
+    "duration_minutes": 90,
+    "distance_km": 2.5,
+    "stops": 5
   }
 ]
